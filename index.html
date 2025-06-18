@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M. THANIGAIVEL - Architect Business Card</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>M. THANIGAIVEL - Professional Architect | Digital Business Card</title>
+    <meta name="description" content="M. THANIGAIVEL - Professional Architect (B.Arch, M.Plan) | Council of Architecture Registered | Building Plan, Layout Approval, Plot Services | THANIGAIVEL Property Development Services">
+    <meta name="keywords" content="architect, building plan, layout approval, plot services, Chennai architect, DTCP approval, CMDA approval">
+    
     <style>
         @import url(https://fonts.googleapis.com/css?family=Raleway:400,300,800);
         @import url(https://fonts.googleapis.com/css?family=Lato:300,700);
@@ -25,10 +27,7 @@
             font-weight: 400;
             font-size: 1em;
             font-family: 'Raleway', Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            overflow: hidden;
         }
         
         .container, figure {
@@ -37,7 +36,12 @@
         }
         
         .container {
+            position: absolute;
             perspective: 1000px;
+            margin-top: -135px;
+            top: 50%;
+            left: 50%;
+            margin-left: -225px;
         }
         
         .card {
@@ -60,7 +64,6 @@
             transform-style: preserve-3d;
             box-shadow: 0 8px 25px rgba(0,0,0,0.3);
             border-radius: 15px;
-            border: 2px solid #3498db;
         }
         
         figure.front {
@@ -83,151 +86,192 @@
             backface-visibility: hidden;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-        }
-        
-        /* Front Side Styling */
-        .front .caption {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            border-radius: 13px;
-        }
-        
-        .front .header {
-            text-align: center;
-            margin-bottom: 10px;
-        }
-        
-        .front h1 {
-            font-size: 1.4em;
-            font-weight: 800;
-            margin: 0 0 5px 0;
-            color: #fff;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .front .credentials {
-            font-size: 0.8em;
-            color: #ecf0f1;
-            margin: 5px 0;
-        }
-        
-        .front .registration {
-            font-size: 0.75em;
-            color: #3498db;
-            font-weight: 600;
-            margin: 5px 0;
-        }
-        
-        .front .services-title {
-            font-size: 0.9em;
-            color: #e74c3c;
-            font-weight: 600;
-            margin: 10px 0 5px 0;
-        }
-        
-        .front .contact-info {
-            font-size: 0.7em;
-            line-height: 1.4;
-            color: #ecf0f1;
-            text-align: left;
-        }
-        
-        .front .contact-info div {
-            margin: 3px 0;
-            display: flex;
+            justify-content: center;
             align-items: center;
         }
         
-        .front .contact-info .icon {
-            margin-right: 8px;
-            width: 16px;
+        /* Front Side Styles */
+        .front .caption {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+        }
+        
+        .front h1 {
+            font-size: 1.8em;
+            font-weight: 800;
+            margin: 0 0 5px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .front .credentials {
+            font-size: 0.9em;
+            margin: 0 0 15px 0;
+            opacity: 0.9;
+        }
+        
+        .front .registration {
+            font-size: 0.8em;
+            margin: 0 0 20px 0;
+            padding: 8px 15px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .front .services {
+            font-size: 0.85em;
+            font-weight: 600;
+            margin: 0 0 20px 0;
             text-align: center;
         }
         
         .front .tagline {
-            background: rgba(52, 152, 219, 0.2);
-            padding: 8px;
-            border-radius: 8px;
             font-size: 0.75em;
-            color: #3498db;
-            font-weight: 600;
+            font-weight: 300;
             text-align: center;
-            margin-top: 10px;
+            opacity: 0.9;
+            padding: 0 10px;
         }
         
-        /* Back Side Styling */
+        /* Back Side Styles */
         .back .caption {
-            background: linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%);
-            border-radius: 13px;
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            text-align: left;
             padding: 25px;
+        }
+        
+        .back .caption:before,
+        .back .caption:after {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            bottom: 20px;
+            left: 20px;
+            content: '';
+            opacity: 0;
+            transition: opacity 0.45s, transform 0.45s;
+            transition-delay: 0.5s;
+        }
+        
+        .back .caption:before {
+            border-top: 2px solid #fff;
+            border-bottom: 2px solid #fff;
+            transform: scale(0,1);
+        }
+        
+        .back .caption:after {
+            border-right: 2px solid #fff;
+            border-left: 2px solid #fff;
+            transform: scale(1,0);
+        }
+        
+        .card.flipped .back .caption:before,
+        .card.flipped .back .caption:after {
+            opacity: 0.8;
+            transform: scale(1);
+        }
+        
+        .back .contact-info {
+            opacity: 0;
+            transition: opacity 0.35s, transform 0.35s;
+            transition-delay: 0.8s;
+            transform: translate3d(-30px,0,0);
+        }
+        
+        .card.flipped .back .contact-info {
+            opacity: 1;
+            transform: translate3d(0,0,0);
         }
         
         .back h2 {
             font-size: 1.2em;
+            margin: 0 0 20px 0;
             font-weight: 700;
-            margin: 0 0 15px 0;
-            color: #fff;
-            text-align: center;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+            font-size: 0.85em;
+        }
+        
+        .contact-item .icon {
+            width: 25px;
+            margin-right: 10px;
+            font-size: 1.1em;
         }
         
         .back .services-list {
-            font-size: 0.8em;
-            line-height: 1.6;
-            color: #ecf0f1;
-            margin-bottom: 15px;
+            margin-top: 20px;
+            opacity: 0;
+            transition: opacity 0.35s, transform 0.35s;
+            transition-delay: 1s;
+            transform: translate3d(0,20px,0);
         }
         
-        .back .services-list div {
-            margin: 5px 0;
-            display: flex;
-            align-items: center;
+        .card.flipped .back .services-list {
+            opacity: 1;
+            transform: translate3d(0,0,0);
         }
         
-        .back .services-list .checkmark {
-            color: #2ecc71;
-            margin-right: 8px;
+        .services-list h3 {
+            font-size: 1em;
+            margin: 0 0 10px 0;
+            font-weight: 700;
+        }
+        
+        .services-list ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 0.75em;
+        }
+        
+        .services-list li {
+            margin: 4px 0;
+            padding-left: 15px;
+            position: relative;
+        }
+        
+        .services-list li:before {
+            content: '✔';
+            position: absolute;
+            left: 0;
+            color: #fff;
             font-weight: bold;
         }
         
-        .back .values {
-            display: flex;
-            justify-content: space-around;
-            margin: 15px 0;
-            font-size: 0.75em;
-            color: #2ecc71;
-            font-weight: 600;
-        }
-        
-        .back .cta {
+        .back .footer {
+            position: absolute;
+            bottom: 15px;
+            left: 25px;
+            right: 25px;
             text-align: center;
-            font-size: 0.85em;
-            color: #f39c12;
-            font-weight: 600;
-            background: rgba(243, 156, 18, 0.2);
-            padding: 8px;
-            border-radius: 8px;
+            font-size: 0.7em;
+            opacity: 0;
+            transition: opacity 0.35s, transform 0.35s;
+            transition-delay: 1.2s;
+            transform: translate3d(0,20px,0);
         }
         
-        /* Hover Effects */
-        .card:hover {
-            transform: scale(1.02);
+        .card.flipped .back .footer {
+            opacity: 1;
+            transform: translate3d(0,0,0);
         }
         
-        /* Click instruction */
         .click-instruction {
             position: absolute;
-            bottom: -40px;
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            color: #fff;
+            color: rgba(255,255,255,0.8);
             font-size: 0.8em;
-            opacity: 0.7;
             animation: pulse 2s infinite;
         }
         
         @keyframes pulse {
-            0%, 100% { opacity: 0.7; }
+            0%, 100% { opacity: 0.6; }
             50% { opacity: 1; }
         }
         
@@ -238,41 +282,40 @@
                 height: 220px;
             }
             
+            .container {
+                margin-left: -175px;
+                margin-top: -110px;
+            }
+            
             .front h1 {
-                font-size: 1.2em;
+                font-size: 1.4em;
             }
             
-            .front .contact-info {
-                font-size: 0.65em;
+            .front .credentials,
+            .front .services {
+                font-size: 0.8em;
             }
             
-            .back {
-                font-size: 0.9em;
+            .back .caption {
+                padding: 20px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="card">
+        <div class="card" id="businessCard">
             <figure class="front">
                 <div class="caption">
-                    <div class="header">
-                        <h1>M. THANIGAIVEL</h1>
-                        <div class="credentials">B.Arch, M.Plan</div>
-                        <div class="credentials">Council of Architecture (CoA Regd.)</div>
-                        <div class="registration">Regn. No: CA/2019/112709</div>
-                        <div class="services-title">Building Plan | Layout Approval | Plot Services</div>
+                    <h1>M. THANIGAIVEL</h1>
+                    <div class="credentials">B.Arch, M.Plan</div>
+                    <div class="registration">
+                        Council of Architecture (CoA Regd.)<br>
+                        Regn. No: CA/2019/112709
                     </div>
-                    
-                    <div class="contact-info">
-                        <div><span class="icon">📍</span>97A, 2nd Floor, 3rd Street, Sabari Nagar</div>
-                        <div><span class="icon"></span>Porur, Chennai - 600116</div>
-                        <div><span class="icon">📞</span>+91-95147 79659</div>
-                        <div><span class="icon">📧</span>thanigaivel.architect@gmail.com</div>
-                        <div><span class="icon">🌐</span>THANIGAIVEL Property Development Services</div>
+                    <div class="services">
+                        Building Plan | Layout Approval | Plot Services
                     </div>
-                    
                     <div class="tagline">
                         🏗️ End-to-End Support for Residential & Commercial Projects 🏗️
                     </div>
@@ -281,51 +324,124 @@
             
             <figure class="back">
                 <div class="caption">
-                    <h2>Our Services</h2>
+                    <div class="contact-info">
+                        <h2>Contact Information</h2>
+                        <div class="contact-item">
+                            <span class="icon">📍</span>
+                            <span>97A, 2nd Floor, 3rd Street, Sabari Nagar<br>Porur, Chennai - 600116</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="icon">📞</span>
+                            <span>+91-95147 79659</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="icon">📧</span>
+                            <span>thanigaivel.architect@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="icon">🌐</span>
+                            <span>THANIGAIVEL Property Development Services</span>
+                        </div>
+                    </div>
                     
                     <div class="services-list">
-                        <div><span class="checkmark">✔</span>Building Plan Design</div>
-                        <div><span class="checkmark">✔</span>DTCP / CMDA / Panchayat Approval</div>
-                        <div><span class="checkmark">✔</span>Site Layout & Plot Subdivision</div>
-                        <div><span class="checkmark">✔</span>2D/3D Elevation</div>
-                        <div><span class="checkmark">✔</span>Construction Guidance</div>
+                        <h3>Our Services:</h3>
+                        <ul>
+                            <li>Building Plan Design</li>
+                            <li>DTCP / CMDA / Panchayat Approval</li>
+                            <li>Site Layout & Plot Subdivision</li>
+                            <li>2D/3D Elevation</li>
+                            <li>Construction Guidance</li>
+                        </ul>
                     </div>
                     
-                    <div class="values">
-                        <span>✅ Reliable</span>
-                        <span>✅ Transparent</span>
-                        <span>✅ Affordable</span>
-                    </div>
-                    
-                    <div class="cta">
-                        Call us for a Free Consultation
-                    </div>
-                    
-                    <div style="margin-top: 15px; text-align: center;">
-                        <a href="./full-website.html" style="color: #3498db; text-decoration: none; font-size: 0.8em; font-weight: 600; background: rgba(52, 152, 219, 0.2); padding: 8px 12px; border-radius: 15px; display: inline-block;">
-                            🌐 View Full Website
-                        </a>
+                    <div class="footer">
+                        ✅ Reliable | ✅ Transparent | ✅ Affordable<br>
+                        <strong>Call us for a Free Consultation</strong>
                     </div>
                 </div>
             </figure>
         </div>
-        <div class="click-instruction">Click to flip the card</div>
     </div>
-
+    
+    <div class="click-instruction">Click to flip the card</div>
+    
     <script>
-        $(document).ready(function() {
-            $('.card').click(function() {
-                $(this).toggleClass('flipped');
+        document.addEventListener('DOMContentLoaded', function() {
+            const card = document.getElementById('businessCard');
+            const container = document.querySelector('.container');
+            
+            // Add click event to flip the card
+            container.addEventListener('click', function() {
+                card.classList.toggle('flipped');
             });
             
             // Add keyboard support
-            $(document).keydown(function(e) {
-                if (e.key === ' ' || e.key === 'Enter') {
-                    $('.card').toggleClass('flipped');
+            document.addEventListener('keydown', function(e) {
+                if (e.code === 'Space' || e.code === 'Enter') {
                     e.preventDefault();
+                    card.classList.toggle('flipped');
                 }
             });
+            
+            // Add touch support for mobile
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            container.addEventListener('touchstart', function(e) {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+            
+            container.addEventListener('touchend', function(e) {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+            
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                const diff = touchStartX - touchEndX;
+                
+                if (Math.abs(diff) > swipeThreshold) {
+                    card.classList.toggle('flipped');
+                }
+            }
+            
+            // Auto-flip demonstration (optional)
+            setTimeout(function() {
+                card.classList.add('flipped');
+                setTimeout(function() {
+                    card.classList.remove('flipped');
+                }, 3000);
+            }, 2000);
         });
+        
+        // Download vCard functionality
+        function downloadVCard() {
+            const vCardData = `BEGIN:VCARD
+VERSION:3.0
+FN:M. THANIGAIVEL
+ORG:THANIGAIVEL Property Development Services
+TITLE:Architect (B.Arch, M.Plan)
+TEL:+91-95147 79659
+EMAIL:thanigaivel.architect@gmail.com
+URL:THANIGAIVEL Property Development Services
+ADR:;;97A, 2nd Floor, 3rd Street, Sabari Nagar;Porur;Chennai;600116;India
+NOTE:Council of Architecture (CoA Regd.) - Regn. No: CA/2019/112709. Building Plan | Layout Approval | Plot Services
+END:VCARD`;
+            
+            const blob = new Blob([vCardData], { type: 'text/vcard' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'M_THANIGAIVEL_Architect.vcf';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+        
+        // Add double-click to download vCard
+        container.addEventListener('dblclick', downloadVCard);
     </script>
 </body>
 </html>
