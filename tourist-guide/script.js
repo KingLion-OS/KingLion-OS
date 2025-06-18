@@ -9,6 +9,26 @@ window.addEventListener('load', function() {
     }, 1000);
 });
 
+// Smooth scrolling and parallax effects
+window.addEventListener('scroll', function() {
+    const scrolled = window.pageYOffset;
+    const parallax = scrolled * 0.5;
+    
+    // Move airplanes based on scroll
+    const airplanes = document.querySelectorAll('.airplane');
+    airplanes.forEach((airplane, index) => {
+        const speed = (index + 1) * 0.3;
+        airplane.style.transform += ` translateY(${scrolled * speed * 0.1}px)`;
+    });
+    
+    // Move clouds based on scroll
+    const clouds = document.querySelectorAll('.cloud');
+    clouds.forEach((cloud, index) => {
+        const speed = (index + 1) * 0.2;
+        cloud.style.transform += ` translateY(${scrolled * speed * 0.05}px)`;
+    });
+});
+
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
