@@ -220,6 +220,7 @@ body {
     z-index: 1000;
     padding: 15px 0;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
 .header .container {
@@ -232,6 +233,9 @@ body {
     color: #667eea;
     font-weight: 700;
     font-size: 1.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .language-selector select {
@@ -936,6 +940,26 @@ body {
         padding: 0 15px;
     }
     
+    /* Header adjustments for mobile */
+    .header {
+        padding: 12px 0;
+    }
+
+    .logo h2 {
+        font-size: 1.1rem;
+        max-width: 250px;
+    }
+
+    .language-selector select {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+
+    /* Hero section adjustments */
+    .hero-content {
+        padding-top: 90px;
+    }
+    
     .profile-info h1 {
         font-size: 2rem;
     }
@@ -946,6 +970,7 @@ body {
     
     .profile-card {
         padding: 30px 20px;
+        margin: 20px 10px;
     }
     
     .social-links {
@@ -987,11 +1012,31 @@ body {
 
 @media (max-width: 480px) {
     .container {
-        padding: 0 15px;
+        padding: 0 10px;
+    }
+    
+    /* Header adjustments for small mobile */
+    .header {
+        padding: 10px 0;
+    }
+
+    .logo h2 {
+        font-size: 0.9rem;
+        max-width: 200px;
+    }
+
+    .language-selector select {
+        padding: 5px 10px;
+        font-size: 0.8rem;
     }
     
     .hero-content {
-        padding-top: 80px;
+        padding-top: 85px;
+    }
+
+    .profile-card {
+        margin: 15px 5px;
+        padding: 25px 15px;
     }
     
     .profile-info h1 {
