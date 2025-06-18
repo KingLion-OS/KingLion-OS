@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M. THANIGAIVEL - Architect Business Card</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <figure class="front">
+                <div class="caption">
+                    <div class="header">
+                        <h1>M. THANIGAIVEL</h1>
+                        <div class="credentials">B.Arch, M.Plan</div>
+                        <div class="credentials">Council of Architecture (CoA Regd.)</div>
+                        <div class="registration">Regn. No: CA/2019/112709</div>
+                        <div class="services-title">Building Plan | Layout Approval | Plot Services</div>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <div><span class="icon">📍</span>97A, 2nd Floor, 3rd Street, Sabari Nagar</div>
+                        <div><span class="icon"></span>Porur, Chennai - 600116</div>
+                        <div><span class="icon">📞</span>+91-95147 79659</div>
+                        <div><span class="icon">📧</span>thanigaivel.architect@gmail.com</div>
+                        <div><span class="icon">🌐</span>www.vetribuildtech.in</div>
+                    </div>
+                    
+                    <div class="tagline">
+                        🏗️ End-to-End Support for Residential & Commercial Projects 🏗️
+                    </div>
+                </div>
+            </figure>
+            
+            <figure class="back">
+                <div class="caption">
+                    <h2>Our Services</h2>
+                    
+                    <div class="services-list">
+                        <div><span class="checkmark">✔</span>Building Plan Design</div>
+                        <div><span class="checkmark">✔</span>DTCP / CMDA / Panchayat Approval</div>
+                        <div><span class="checkmark">✔</span>Site Layout & Plot Subdivision</div>
+                        <div><span class="checkmark">✔</span>2D/3D Elevation</div>
+                        <div><span class="checkmark">✔</span>Construction Guidance</div>
+                    </div>
+                    
+                    <div class="values">
+                        <span>✅ Reliable</span>
+                        <span>✅ Transparent</span>
+                        <span>✅ Affordable</span>
+                    </div>
+                    
+                    <div class="cta">
+                        Call us for a Free Consultation
+                    </div>
+                </div>
+            </figure>
+        </div>
+        <div class="click-instruction">Click to flip the card</div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('.card').click(function() {
+                $(this).toggleClass('flipped');
+            });
+            
+            // Add keyboard support
+            $(document).keydown(function(e) {
+                if (e.key === ' ' || e.key === 'Enter') {
+                    $('.card').toggleClass('flipped');
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
