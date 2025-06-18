@@ -114,11 +114,11 @@ document.querySelector('.contact-btn').addEventListener('click', function(e) {
     const vCardData = `BEGIN:VCARD
 VERSION:3.0
 FN:M. THANIGAIVEL
-ORG:THANIGAIVEL Property Development Services
+ORG:VetriBuildTech
 TITLE:Architect (B.Arch, M.Plan)
 TEL:+91-95147 79659
 EMAIL:thanigaivel.architect@gmail.com
-URL:THANIGAIVEL Property Development Services
+URL:www.vetribuildtech.in
 ADR:;;97A, 2nd Floor, 3rd Street, Sabari Nagar;Porur;Chennai;600116;India
 NOTE:Council of Architecture (CoA Regd.) - Regn. No: CA/2019/112709. Building Plan | Layout Approval | Plot Services
 END:VCARD`;
