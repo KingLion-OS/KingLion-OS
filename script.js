@@ -114,7 +114,7 @@ document.querySelector('.contact-btn').addEventListener('click', function(e) {
     const vCardData = `BEGIN:VCARD
 VERSION:3.0
 FN:M. THANIGAIVEL
-ORG:THANIGAIVEL Property Development Services
+ORG:cial
 TITLE:Architect (B.Arch, M.Plan)
 TEL:+91-95147 79659
 EMAIL:thanigaivel.architect@gmail.com
